@@ -12,10 +12,7 @@ class UserAgent:public BoardInfo,public BaseAgent
 {
 private:
 	CellCoord Mouse2Cell(const MouseCoord &coord)
-	{
-		auto cell = (coord - this->rate*this->board_offset) / (this->board_cell_size*(Rate)this->rate);
-		return cell;
-	}
+	{}
 
 public:
 	UserAgent(const shared_ptr<CellMGR> &cells)

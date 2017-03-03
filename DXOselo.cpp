@@ -4,7 +4,9 @@
 #include "stdafx.h"
 #include "DXOselo.h"
 #include<DxFunc.h>
-#include<DxLib.h>
+
+#include"CellMGR.h"
+
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
@@ -12,6 +14,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_ int       nCmdShow)
 {
 	DxClass obj;
+
+	CellMGR cells(8);
+
+	cells.Init();
+	cells.Draw();
 
 	WaitKey();
 }

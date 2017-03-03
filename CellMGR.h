@@ -1,50 +1,67 @@
 #pragma once
 
-#include"stdafx.h"
-
-#include"RateClass.h"
+#include"../Console/COselo/OseloClass.h"
 #include"CellClass.h"
 
-#include<Coordinate.h>
-#include<vector>
-#include<memory>
+using namespace std;
 
-#include<OseloClass.h>
-
-typedef TCoordinate<int> CellNum;
-
-class CellMGR:public RateClass
+class CellMGR
 {
 private:
-	std::vector<std::vector<std::unique_ptr<CellClass>>> cells;
-	std::unique_ptr<CellClass> fake;
+	vector<vector<BaseImage>> cells;
 	int handle[BoardClass::Cell_NUM];
-	int init_turn;
 
-	CellNum cell_num;
-	OseloClass oselo_obj;
+	OseloClass oselo;
 
 public:
-	CellMGR(const CellNum &cell_num, const int &current_turn);
-
-	~CellMGR();
-
-	void Init();
-
-	void Draw();
-
-	void PutPiecesAt(const PutState &state);
-
-	void PutPieceAt(const CellCoord &coord, const int &color);
-
-	void PutFake(const CellCoord &coord);
-
-	int PutReal(const CellCoord &coord);
-
-	void UpDate();
-
-	OseloClass GetOselo()const
+	CellMGR(const BoardSize &board_size)
+		:oselo(board_size)
 	{
-		return this->oselo_obj;
+	}
+
+	void Init()
+	{
+		auto board_size=oselo.GetBoard().GetBoardSize();
+		this->cells = vector<vector<BaseImage>>(board_size.y, vector<BaseImage>(board_size.x));
+
+		auto init=this->oselo.Init();
+
+		vector<PutState> inits({ init.first,init.second });
+
+		for (auto &j : inits)
+		{
+			for (auto &i : j.flip)
+			{
+				this->PutPieceAt(i, init.first.color);
+			}
+		}
+	}
+
+	void PutPieceAt(const CellCoord &coord, const int &color)
+	{
+		oselo.Put(coord);
+
+		auto imag_coord = this->CellToImag(coord);
+		this->cells[coord.y][coord.x].Init(imag_coord, this->handle[color]);
+	}
+
+	ImagCoord CellToImag(const CellCoord &coord)
+	{
+		return (CellCoord)100 * coord;
+	}
+
+	void Draw()const
+	{
+		auto func1 = [](const BaseImage &imag)
+		{
+			imag.Draw();
+		};
+		
+		auto func2 = [&func1](const vector<BaseImage> &images)
+		{
+			for_each(begin(images), end(images), func1);
+		};
+
+		for_each(begin(this->cells), end(this->cells), func2);
 	}
 };

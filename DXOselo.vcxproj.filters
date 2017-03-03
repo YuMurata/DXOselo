@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="画像">
+      <UniqueIdentifier>{5480c4df-0ade-4d5a-879b-3d8fd40a67c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="セル">
+      <UniqueIdentifier>{704d9dcd-db86-40e8-93a6-9b1fdab03708}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -30,6 +36,36 @@
     <ClInclude Include="DXOselo.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="BaseObject.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="BoardInfo.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectMGR.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="OseloObject.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Osero.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="RateClass.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="UserAgent.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CellClass.h">
+      <Filter>セル</Filter>
+    </ClInclude>
+    <ClInclude Include="CellMGR.h">
+      <Filter>セル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -37,6 +73,21 @@
     </ClCompile>
     <ClCompile Include="DXOselo.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectMGR.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="OseloObject.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CellClass.cpp">
+      <Filter>セル</Filter>
+    </ClCompile>
+    <ClCompile Include="CellMGR.cpp">
+      <Filter>セル</Filter>
+    </ClCompile>
+    <ClCompile Include="CellPut.cpp">
+      <Filter>セル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -50,6 +101,12 @@
     </Image>
     <Image Include="DXOselo.ico">
       <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Image\cell.bmp">
+      <Filter>画像</Filter>
+    </Image>
+    <Image Include="Image\black.png">
+      <Filter>画像</Filter>
     </Image>
   </ItemGroup>
 </Project>
