@@ -69,6 +69,9 @@
     <ClInclude Include="OseloObject.h">
       <Filter>システム</Filter>
     </ClInclude>
+    <ClInclude Include="QAgent.h">
+      <Filter>エージェント</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

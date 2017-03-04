@@ -4,6 +4,7 @@
 #include"CellMGR.h"
 #include"UserAgent.h"
 #include"RandomAgent.h"
+#include"QAgent.h"
 
 class OseloObject:public ObjectIF
 {
@@ -17,8 +18,11 @@ public:
 	OseloObject(const BoardSize &board_size)
 		:cells(board_size),pieces(new PieceMGR(board_size))
 	{
-		agents[BoardClass::Cell_BLACK].reset(new UserAgent(this->pieces));
-		agents[BoardClass::Cell_WHITE].reset(new RandomAgent(this->pieces));
+		auto black = BoardClass::Cell_BLACK;
+		auto white = BoardClass::Cell_WHITE;
+
+		this->agents[black].reset(new UserAgent(this->pieces,black));
+		this->agents[white].reset(new QAgent(this->pieces,white));
 	}
 	
 	~OseloObject() {}
@@ -29,6 +33,12 @@ public:
 	{
 		this->cells.Init();
 		this->pieces->Init();
+		
+		auto q_agent = dynamic_cast<QAgent*>(this->agents[BoardClass::Cell_WHITE].get());
+		if (q_agent != nullptr)
+		{
+			q_agent->Load();
+		}
 	}
 
 	virtual void Draw()const
@@ -45,6 +55,11 @@ public:
 		if (this->pieces->CheckFinish())
 		{
 			this->pieces->Init();
+			auto q_agent = dynamic_cast<QAgent*>(this->agents[BoardClass::Cell_WHITE].get());
+			if (q_agent != nullptr)
+			{
+				q_agent->Write();
+			}
 		}
 	}
 

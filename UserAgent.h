@@ -14,8 +14,8 @@ private:
 	}
 
 public:
-	UserAgent(const shared_ptr<PieceMGR> &pieces)
-		:BaseAgent(pieces)
+	UserAgent(const shared_ptr<PieceMGR> &pieces,const int &color)
+		:BaseAgent(pieces,color)
 	{}
 
 	void Put(const Input &input)

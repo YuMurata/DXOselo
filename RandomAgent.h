@@ -7,8 +7,8 @@
 class RandomAgent:public BaseAgent,public Randomer
 {
 public:
-	RandomAgent(const shared_ptr<PieceMGR> &pieces)
-		:BaseAgent(pieces)
+	RandomAgent(const shared_ptr<PieceMGR> &pieces,const int &color)
+		:BaseAgent(pieces,color)
 	{}
 
 	void Put(const Input &input)
