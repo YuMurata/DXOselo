@@ -29,14 +29,14 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -182,7 +182,7 @@
     <ClCompile Include="CellClass.cpp" />
     <ClCompile Include="CellMGR.cpp" />
     <ClCompile Include="CellPut.cpp" />
-    <ClCompile Include="DXOselo.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="ObjectMGR.cpp" />
     <ClCompile Include="OseloObject.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -199,6 +199,7 @@
     <Image Include="DXOselo.ico" />
     <Image Include="Image\black.png" />
     <Image Include="Image\cell.bmp" />
+    <Image Include="Image\white.png" />
     <Image Include="small.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

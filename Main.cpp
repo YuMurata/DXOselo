@@ -3,7 +3,6 @@
 
 #include "stdafx.h"
 #include "DXOselo.h"
-#include<DxFunc.h>
 
 #include"CellMGR.h"
 
@@ -13,12 +12,17 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_ LPWSTR    lpCmdLine,
                      _In_ int       nCmdShow)
 {
+	using namespace std;
+
 	DxClass obj;
 
-	CellMGR cells(8);
+	unique_ptr<ObjectIF> cells(new CellMGR(8));
 
-	cells.Init();
-	cells.Draw();
+	cells->Init();
 
+	while (obj.MainLoop())
+	{
+		obj.Draw(cells);
+	}
 	WaitKey();
 }

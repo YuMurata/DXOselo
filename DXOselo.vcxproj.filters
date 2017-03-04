@@ -71,9 +71,6 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="DXOselo.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="ObjectMGR.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -88,6 +85,9 @@
     </ClCompile>
     <ClCompile Include="CellPut.cpp">
       <Filter>セル</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +106,9 @@
       <Filter>画像</Filter>
     </Image>
     <Image Include="Image\black.png">
+      <Filter>画像</Filter>
+    </Image>
+    <Image Include="Image\white.png">
       <Filter>画像</Filter>
     </Image>
   </ItemGroup>

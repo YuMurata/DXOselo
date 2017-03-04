@@ -5,9 +5,11 @@
 class CellClass :public BaseImage
 {
 public:
-	CellClass();
+	CellClass(){}
 
-	~CellClass();
+	~CellClass() {}
+
+	
 
 	void Init(const CellCoord &coord, const int &handle)
 	{
