@@ -1,8 +1,10 @@
 #pragma once
 #include"PieceMGR.h"
+#include"BaseAgent.h"
+
 using namespace std;
 
-class UserAgent
+class UserAgent:public BaseAgent
 {
 private:
 	CellCoord MouseToCell(const MouseCoord &coord)
@@ -11,11 +13,9 @@ private:
 		return (CellCoord)coord / size;
 	}
 
-	shared_ptr<PieceMGR> pieces;
-
 public:
 	UserAgent(const shared_ptr<PieceMGR> &pieces)
-		:pieces(pieces)
+		:BaseAgent(pieces)
 	{}
 
 	void Put(const Input &input)

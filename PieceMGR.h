@@ -140,4 +140,9 @@ public:
 	{
 		return this->oselo.GetCurrent();
 	}
+
+	BoardClass GetBoard()const
+	{
+		return this->oselo.GetBoard();
+	}
 };

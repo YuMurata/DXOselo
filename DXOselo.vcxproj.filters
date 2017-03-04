@@ -25,6 +25,9 @@
     <Filter Include="エージェント">
       <UniqueIdentifier>{3b8b8caf-74b1-4785-9406-4f4ea3aaef6c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="システム">
+      <UniqueIdentifier>{140add00-c8f9-4376-adac-86810261847e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -42,9 +45,6 @@
     <ClInclude Include="DXOselo.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="OseloObject.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Test.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -59,6 +59,15 @@
     </ClInclude>
     <ClInclude Include="UserAgent.h">
       <Filter>エージェント</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomAgent.h">
+      <Filter>エージェント</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseAgent.h">
+      <Filter>エージェント</Filter>
+    </ClInclude>
+    <ClInclude Include="OseloObject.h">
+      <Filter>システム</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

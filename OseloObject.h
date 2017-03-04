@@ -3,6 +3,7 @@
 #include"PieceMGR.h"
 #include"CellMGR.h"
 #include"UserAgent.h"
+#include"RandomAgent.h"
 
 class OseloObject:public ObjectIF
 {
@@ -10,14 +11,14 @@ private:
 	CellMGR cells;
 	shared_ptr<PieceMGR> pieces;
 	ImagRate rate;
-	unique_ptr<UserAgent> agents[BoardClass::Cell_NUM];
+	unique_ptr<BaseAgent> agents[BoardClass::Cell_NUM];
 
 public:
 	OseloObject(const BoardSize &board_size)
 		:cells(board_size),pieces(new PieceMGR(board_size))
 	{
 		agents[BoardClass::Cell_BLACK].reset(new UserAgent(this->pieces));
-		agents[BoardClass::Cell_WHITE].reset(new UserAgent(this->pieces));
+		agents[BoardClass::Cell_WHITE].reset(new RandomAgent(this->pieces));
 	}
 	
 	~OseloObject() {}
