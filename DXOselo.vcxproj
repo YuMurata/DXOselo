@@ -165,8 +165,9 @@
   <ItemGroup>
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="BoardInfo.h" />
-    <ClInclude Include="CellClass.h" />
     <ClInclude Include="CellMGR.h" />
+    <ClInclude Include="PieceClass.h" />
+    <ClInclude Include="PieceMGR.h" />
     <ClInclude Include="DXOselo.h" />
     <ClInclude Include="ObjectMGR.h" />
     <ClInclude Include="OseloObject.h" />
@@ -179,9 +180,9 @@
     <ClInclude Include="UserAgent.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CellClass.cpp" />
-    <ClCompile Include="CellMGR.cpp" />
-    <ClCompile Include="CellPut.cpp" />
+    <ClCompile Include="PieceClass.cpp" />
+    <ClCompile Include="PieceMGR.cpp" />
+    <ClCompile Include="PiecePut.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ObjectMGR.cpp" />
     <ClCompile Include="OseloObject.cpp" />

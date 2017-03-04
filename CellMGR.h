@@ -1,25 +1,22 @@
 #pragma once
 
-#include"../Console/COselo/OseloClass.h"
 #include<DxFunc.h>
 
 using namespace std;
 
-class CellMGR:public ObjectIF
+class CellMGR:public ImageMGR
 {
 private:
 	vector<vector<BaseImage>> cells;
-	int handle[BoardClass::Cell_NUM];
+	int handle;
+	BoardSize board_size;
 	ImagRate rate;
-
-	OseloClass oselo;
 
 public:
 	CellMGR(const BoardSize &board_size)
-		:oselo(board_size)
+		:board_size(board_size)
 	{
-		this->handle[BoardClass::Cell_BLACK] = LoadGraph("Image/black.png");
-		this->handle[BoardClass::Cell_WHITE] = LoadGraph("Image/white.png");
+		this->handle = LoadGraph("Image/cell.bmp");
 
 		TCoordinate<int> coord;
 		int dum;
@@ -27,63 +24,43 @@ public:
 
 		ImagSize size;
 
-		GetGraphSizeF(this->handle[BoardClass::Cell_BLACK], &size.x, &size.y);
+		GetGraphSizeF(this->handle, &size.x, &size.y);
 
-		this->rate=TCoordinate<double>(1.)*coord/board_size/size;
+		this->rate = TCoordinate<double>(1.)*coord / board_size / size;
 	}
 
 	void Init()
 	{
-		auto board_size=oselo.GetBoard().GetBoardSize();
-		this->cells = vector<vector<BaseImage>>(board_size.y, vector<BaseImage>(board_size.x));
+		this->images = vector<BaseImage>(this->board_size.x*this->board_size.y);
 
-		auto init=this->oselo.Init();
-
-		vector<PutState> inits({ init.first,init.second });
-
-		for (auto &j : inits)
+		CellCoord coord;
+		for (coord.y = 0; coord.y < board_size.y; ++coord.y)
 		{
-			for (auto &i : j.flip)
+			for (coord.x = 0; coord.x < board_size.x; ++coord.x)
 			{
-				this->PutPieceAt(i, j.color);
+				this->PutPieceAt(coord);
 			}
 		}
 	}
 
-	void Put(const CellCoord &coord)
+	void PutPieceAt(const CellCoord &coord)
 	{
-		oselo.Put(coord);
-		this->PutPieceAt(coord, oselo.GetCurrent());
-	}
-
-	void PutPieceAt(const CellCoord &coord, const int &color)
-	{
-		auto &cell = this->cells[coord.y][coord.x];
+		auto &cell = this->images[coord.y*board_size.x+coord.x];
 		auto imag_coord = this->CellToImag(coord);
-		cell.Init(imag_coord, this->handle[color],this->rate);
+		cell.Init(imag_coord, this->handle, this->rate);
 	}
 
 	ImagCoord CellToImag(const CellCoord &coord)
 	{
 		ImagSize ret;
-		GetGraphSizeF(this->handle[BoardClass::Cell_BLACK], &ret.x, &ret.y);
-		
+		GetGraphSizeF(this->handle, &ret.x, &ret.y);
+
 		return ret * coord*this->rate;
 	}
 
-	void Draw()const
+	ImagSize GetSize()
 	{
-		auto func1 = [](const BaseImage &imag)
-		{
-			imag.Draw();
-		};
-		
-		auto func2 = [&func1](const vector<BaseImage> &images)
-		{
-			for_each(begin(images), end(images), func1);
-		};
-
-		for_each(begin(this->cells), end(this->cells), func2);
+		return this->images.front().GetAppSize();
 	}
 
 	void UpDate(const Input &input) {}

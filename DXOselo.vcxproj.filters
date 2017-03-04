@@ -16,8 +16,11 @@
     <Filter Include="画像">
       <UniqueIdentifier>{5480c4df-0ade-4d5a-879b-3d8fd40a67c2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="セル">
+    <Filter Include="コマ">
       <UniqueIdentifier>{704d9dcd-db86-40e8-93a6-9b1fdab03708}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ボード">
+      <UniqueIdentifier>{af1cc177-8f9b-42e5-b096-3fec15b02d57}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -60,11 +63,14 @@
     <ClInclude Include="UserAgent.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="CellClass.h">
-      <Filter>セル</Filter>
+    <ClInclude Include="PieceClass.h">
+      <Filter>コマ</Filter>
+    </ClInclude>
+    <ClInclude Include="PieceMGR.h">
+      <Filter>コマ</Filter>
     </ClInclude>
     <ClInclude Include="CellMGR.h">
-      <Filter>セル</Filter>
+      <Filter>ボード</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -77,17 +83,17 @@
     <ClCompile Include="OseloObject.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="CellClass.cpp">
-      <Filter>セル</Filter>
-    </ClCompile>
-    <ClCompile Include="CellMGR.cpp">
-      <Filter>セル</Filter>
-    </ClCompile>
-    <ClCompile Include="CellPut.cpp">
-      <Filter>セル</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="PieceMGR.cpp">
+      <Filter>コマ</Filter>
+    </ClCompile>
+    <ClCompile Include="PieceClass.cpp">
+      <Filter>コマ</Filter>
+    </ClCompile>
+    <ClCompile Include="PiecePut.cpp">
+      <Filter>コマ</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

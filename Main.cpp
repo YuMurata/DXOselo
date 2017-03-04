@@ -4,7 +4,7 @@
 #include "stdafx.h"
 #include "DXOselo.h"
 
-#include"CellMGR.h"
+#include"OseloObject.h"
 
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -16,12 +16,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 	DxClass obj;
 
-	unique_ptr<ObjectIF> cells(new CellMGR(8));
+	unique_ptr<ObjectIF> cells(new OseloObject(8));
+	Input input;
 
 	cells->Init();
 
 	while (obj.MainLoop())
 	{
+		obj.UpDate(cells,&input);
 		obj.Draw(cells);
 	}
 	WaitKey();
