@@ -22,6 +22,9 @@
     <Filter Include="ボード">
       <UniqueIdentifier>{af1cc177-8f9b-42e5-b096-3fec15b02d57}</UniqueIdentifier>
     </Filter>
+    <Filter Include="エージェント">
+      <UniqueIdentifier>{3b8b8caf-74b1-4785-9406-4f4ea3aaef6c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -39,28 +42,10 @@
     <ClInclude Include="DXOselo.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="BaseObject.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="BoardInfo.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectMGR.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="OseloObject.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Osero.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="RateClass.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Test.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="UserAgent.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="PieceClass.h">
@@ -72,12 +57,12 @@
     <ClInclude Include="CellMGR.h">
       <Filter>ボード</Filter>
     </ClInclude>
+    <ClInclude Include="UserAgent.h">
+      <Filter>エージェント</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectMGR.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="OseloObject.cpp">

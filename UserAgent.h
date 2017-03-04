@@ -1,37 +1,34 @@
 #pragma once
-
-#include<memory>
-#include"CellMGR.h"
-#include<DxFunc.h>
-#include"BoardInfo.h"
-#include"BaseAgent.h"
-
+#include"PieceMGR.h"
 using namespace std;
 
-class UserAgent:public BoardInfo,public BaseAgent
+class UserAgent
 {
 private:
-	CellCoord Mouse2Cell(const MouseCoord &coord)
-	{}
+	CellCoord MouseToCell(const MouseCoord &coord)
+	{
+		auto size = this->pieces->GetSize();
+		return (CellCoord)coord / size;
+	}
+
+	shared_ptr<PieceMGR> pieces;
 
 public:
-	UserAgent(const shared_ptr<CellMGR> &cells)
-		:BaseAgent(cells){}
+	UserAgent(const shared_ptr<PieceMGR> &pieces)
+		:pieces(pieces)
+	{}
 
-	int Put(const Input &input)
+	void Put(const Input &input)
 	{
-		auto coord = Mouse2Cell(input.GetMouseCoord());
-		int win = BoardClass::Cell_Empty;
+		auto coord = MouseToCell(input.GetMouseCoord());
+
 		if (input.GetMouseInPut(MOUSE_INPUT_LEFT))
 		{
-			 win = this->cells->PutReal(coord);
+			this->pieces->Put(coord);
 		}
 		else
 		{
-			this->cells->PutFake(coord);
+			this->pieces->TempPut(coord);
 		}
-		this->cells->UpDate();
-
-		return win;
 	}
 };

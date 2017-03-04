@@ -65,6 +65,11 @@ public:
 		}
 	}
 
+	int GetWin()const
+	{
+		return this->oselo.GetWin();
+}
+
 	void TempPut(const CellCoord &coord)
 	{
 		auto board = this->oselo.GetBoard();
@@ -115,5 +120,24 @@ public:
 	{
 		this->ImageMGR::Draw();
 		this->fake.Draw();
+	}
+
+	bool CheckFinish()const
+	{
+		return this->oselo.CheckFinish();
+	}
+
+	ImagSize GetSize()const
+	{
+		auto handle = this->handle[BoardClass::Cell_BLACK];
+		ImagSize size;
+		GetGraphSizeF(handle, &size.x, &size.y);
+
+		return size*this->rate;
+	}
+
+	int GetCurrent()const
+	{
+		return this->oselo.GetCurrent();
 	}
 };
