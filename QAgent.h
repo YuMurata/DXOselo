@@ -4,6 +4,7 @@
 #include<Hash.h>
 #include"../../MachineLearning/ReinforcementLearning/QLearning/QLearning/QLClass.h"
 #include<StringPlus.h>
+#include<sstream>
 
 class QAgent :public BaseAgent
 {
@@ -53,9 +54,8 @@ public:
 		Load func_load = [&](const vector<vector<wstring>> &data_list)
 		{
 			vector<SAQ> ret(size(data_list));
-
 			auto board_size = this->pieces->GetBoard().GetBoardSize();
-
+			vector<int> gyh(1, 3);
 			auto s_size = board_size.x*board_size.y;
 			auto a_size = 2;
 
@@ -73,8 +73,12 @@ public:
 				auto ret_board = [](const vector<wstring> &str)
 				{
 					vector<int> ret(size(str));
-
-					transform(begin(str), end(str), begin(ret), [](const wstring &str) {return stoi(str); });
+					auto func=[](const wstring &str) 
+					{
+						size_t temp = 0;
+						return stoi(str,&temp);
+					};
+					transform(begin(str), end(str), begin(ret),func);
 					return ret;
 				};
 
@@ -87,11 +91,16 @@ public:
 				}
 
 				s = board;
-				a = CellCoord(stoi(*itr), stoi(*(itr + 1)));
+				size_t temp1=0, temp2=0;
+
+				auto x = stoi(*itr, &temp1);
+				auto y = stoi(*(itr + 1), &temp2);
+
+				a = CellCoord(x,y);
 
 				itr += a_size;
-
-				q = stod(*itr);
+				size_t temp3 = 0;
+				q = stod(*itr,&temp3);
 
 				return ret;
 			};

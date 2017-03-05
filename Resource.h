@@ -10,8 +10,9 @@
 #define IDD_ABOUTBOX			103
 #define IDM_ABOUT				104
 #define IDM_EXIT				105
-#define IDI_DXOSELO			107
+#define IDI_DXOSELO			110
 #define IDI_SMALL				108
+#define IDI_MAINICON			107
 #define IDC_DXOSELO			109
 #define IDC_MYICON				2
 #ifndef IDC_STATIC

@@ -1,7 +1,6 @@
 // DXOselo.cpp : アプリケーションのエントリ ポイントを定義します。
 //
 
-#include "stdafx.h"
 #include "DXOselo.h"
 
 #include"OseloObject.h"
@@ -14,7 +13,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 {
 	using namespace std;
 
-	DxClass obj;
+	DxClass obj("オセロです＾ｐ＾");
 
 	unique_ptr<ObjectIF> cells(new OseloObject(8));
 	Input input;

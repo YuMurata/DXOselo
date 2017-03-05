@@ -99,12 +99,6 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="small.ico">
-      <Filter>リソース ファイル</Filter>
-    </Image>
-    <Image Include="DXOselo.ico">
-      <Filter>リソース ファイル</Filter>
-    </Image>
     <Image Include="Image\cell.bmp">
       <Filter>画像</Filter>
     </Image>
@@ -113,6 +107,15 @@
     </Image>
     <Image Include="Image\white.png">
       <Filter>画像</Filter>
+    </Image>
+    <Image Include="MyIcon.ico">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="DXOselo.ico">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="small.ico">
+      <Filter>リソース ファイル</Filter>
     </Image>
   </ItemGroup>
 </Project>

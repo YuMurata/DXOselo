@@ -23,6 +23,12 @@ public:
 
 		this->agents[black].reset(new UserAgent(this->pieces,black));
 		this->agents[white].reset(new QAgent(this->pieces,white));
+
+		auto q_agent = dynamic_cast<QAgent*>(this->agents[BoardClass::Cell_WHITE].get());
+		if (q_agent != nullptr)
+		{
+	q_agent->Load();
+		}
 	}
 	
 	~OseloObject() {}
@@ -33,12 +39,6 @@ public:
 	{
 		this->cells.Init();
 		this->pieces->Init();
-		
-		auto q_agent = dynamic_cast<QAgent*>(this->agents[BoardClass::Cell_WHITE].get());
-		if (q_agent != nullptr)
-		{
-			q_agent->Load();
-		}
 	}
 
 	virtual void Draw()const
