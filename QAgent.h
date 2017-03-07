@@ -13,7 +13,7 @@ private:
 
 public:
 	QAgent(const shared_ptr<PieceMGR> &pieces,const int &color)
-		:BaseAgent(pieces,color) 
+		:BaseAgent(pieces,color) ,ql_obj(0.4,0.7,0.)
 	{
 		using S = BoardClass;
 		using A = CellCoord;

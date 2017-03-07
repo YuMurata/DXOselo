@@ -163,8 +163,10 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AgentInfo.h" />
     <ClInclude Include="BaseAgent.h" />
     <ClInclude Include="CellMGR.h" />
+    <ClInclude Include="MenuObject.h" />
     <ClInclude Include="PieceClass.h" />
     <ClInclude Include="PieceMGR.h" />
     <ClInclude Include="DXOselo.h" />
@@ -178,6 +180,7 @@
     <ClInclude Include="UserAgent.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MenuObject.cpp" />
     <ClCompile Include="PieceClass.cpp" />
     <ClCompile Include="PieceMGR.cpp" />
     <ClCompile Include="PiecePut.cpp" />

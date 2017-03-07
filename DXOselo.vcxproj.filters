@@ -72,12 +72,15 @@
     <ClInclude Include="QAgent.h">
       <Filter>エージェント</Filter>
     </ClInclude>
+    <ClInclude Include="MenuObject.h">
+      <Filter>システム</Filter>
+    </ClInclude>
+    <ClInclude Include="AgentInfo.h">
+      <Filter>システム</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="OseloObject.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
@@ -91,6 +94,12 @@
     </ClCompile>
     <ClCompile Include="PiecePut.cpp">
       <Filter>コマ</Filter>
+    </ClCompile>
+    <ClCompile Include="OseloObject.cpp">
+      <Filter>システム</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuObject.cpp">
+      <Filter>システム</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

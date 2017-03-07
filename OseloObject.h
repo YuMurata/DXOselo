@@ -5,8 +5,9 @@
 #include"UserAgent.h"
 #include"RandomAgent.h"
 #include"QAgent.h"
+#include"AgentInfo.h"
 
-class OseloObject:public ObjectIF
+class OseloObject:public ObjectIF,public SceneChanger,public AgentInfo
 {
 private:
 	CellMGR cells;
@@ -15,20 +16,10 @@ private:
 	unique_ptr<BaseAgent> agents[BoardClass::Cell_NUM];
 
 public:
-	OseloObject(const BoardSize &board_size)
+	OseloObject(const BoardSize &board_size=8)
 		:cells(board_size),pieces(new PieceMGR(board_size))
 	{
-		auto black = BoardClass::Cell_BLACK;
-		auto white = BoardClass::Cell_WHITE;
-
-		this->agents[black].reset(new UserAgent(this->pieces,black));
-		this->agents[white].reset(new QAgent(this->pieces,white));
-
-		auto q_agent = dynamic_cast<QAgent*>(this->agents[BoardClass::Cell_WHITE].get());
-		if (q_agent != nullptr)
-		{
-	q_agent->Load();
-		}
+		
 	}
 	
 	~OseloObject() {}
@@ -37,6 +28,26 @@ public:
 
 	virtual void Init()
 	{
+		auto black = BoardClass::Cell_BLACK;
+		auto white = BoardClass::Cell_WHITE;
+
+		if (this->user_color == BoardClass::Cell_BLACK)
+		{
+			this->agents[black].reset(new UserAgent(this->pieces, black));
+			this->agents[white].reset(new QAgent(this->pieces, white));
+		}
+		else
+		{
+			this->agents[black].reset(new QAgent(this->pieces, black));
+			this->agents[white].reset(new UserAgent(this->pieces, white));
+		}
+
+		auto q_agent = dynamic_cast<QAgent*>(this->agents[BoardClass::Cell_WHITE].get());
+		if (q_agent != nullptr)
+		{
+			q_agent->Load();
+		}
+
 		this->cells.Init();
 		this->pieces->Init();
 	}
@@ -63,5 +74,4 @@ public:
 		}
 	}
 
-	CellCoord MouseToCell(MouseCoord x) { return 0; }
 };
