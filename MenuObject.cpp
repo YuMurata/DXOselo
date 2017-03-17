@@ -1,6 +1,7 @@
 #include"MenuObject.h"
 
 int AgentInfo::user_color;
+int AgentInfo::q_color;
 
 void MenuObject::UpDate(const Input &input)
 {
@@ -17,11 +18,13 @@ void MenuObject::UpDate(const Input &input)
 		if (beg <= coord&&coord <= mid)
 		{
 			this->user_color = BoardClass::Cell_BLACK;
+			this->q_color = BoardClass::Cell_WHITE;
 			this->scene_name = "GAME";
 		}
 		else if (ScreenSize(mid.x, 0) <= coord&&coord <= screen_size)
 		{
 			this->user_color = BoardClass::Cell_WHITE;
+			this->q_color = BoardClass::Cell_BLACK;
 			this->scene_name = "GAME";
 		}
 	}

@@ -145,13 +145,31 @@ public:
 		this->pieces->Put(coord);
 	}
 
-	void Load()
+	void Load(const int &color)
 	{
-		this->ql_obj.LoadFile(L"white.ql");
+		wstring file_name;
+		if (color == BoardClass::Cell_BLACK)
+		{
+			file_name = L"black.ql";
+		}
+		else
+		{
+			file_name = L"white.ql";
+		}
+		this->ql_obj.LoadFile(file_name);
 	}
 
-	void Write()
+	void Write(const int &color)
 	{
-		this->ql_obj.WriteFile(L"white.ql");
+		wstring file_name;
+		if (color == BoardClass::Cell_BLACK)
+		{
+			file_name = L"black.ql";
+		}
+		else
+		{
+			file_name = L"white.ql";
+		}
+		this->ql_obj.WriteFile(file_name);
 	}
 };

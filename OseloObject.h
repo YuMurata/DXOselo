@@ -28,25 +28,14 @@ public:
 
 	virtual void Init()
 	{
-		auto black = BoardClass::Cell_BLACK;
-		auto white = BoardClass::Cell_WHITE;
+		this->agents[this->user_color].reset(new UserAgent(this->pieces, this->user_color));
+		this->agents[this->q_color].reset(new QAgent(this->pieces, this->q_color));
 
-		if (this->user_color == BoardClass::Cell_BLACK)
-		{
-			this->agents[black].reset(new UserAgent(this->pieces, black));
-			this->agents[white].reset(new QAgent(this->pieces, white));
-		}
-		else
-		{
-			this->agents[black].reset(new QAgent(this->pieces, black));
-			this->agents[white].reset(new UserAgent(this->pieces, white));
-		}
-
-		auto q_agent = dynamic_cast<QAgent*>(this->agents[BoardClass::Cell_WHITE].get());
-		if (q_agent != nullptr)
-		{
-			q_agent->Load();
-		}
+			auto q_agent = dynamic_cast<QAgent*>(this->agents[this->q_color].get());
+			if (q_agent != nullptr)
+			{
+				q_agent->Load(this->q_color);
+			}
 
 		this->cells.Init();
 		this->pieces->Init();
@@ -66,10 +55,10 @@ public:
 		if (this->pieces->CheckFinish())
 		{
 			this->pieces->Init();
-			auto q_agent = dynamic_cast<QAgent*>(this->agents[BoardClass::Cell_WHITE].get());
+			auto q_agent = dynamic_cast<QAgent*>(this->agents[this->q_color].get());
 			if (q_agent != nullptr)
 			{
-				q_agent->Write();
+				q_agent->Write(this->q_color);
 			}
 		}
 	}
